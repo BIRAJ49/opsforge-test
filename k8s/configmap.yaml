@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: test-config
+  namespace: opsforge
+data:
+  APP_ENV: production
+  REDIS_URL: redis://test-redis:6379/0
