@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: test-backend
+  namespace: opsforge
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: test-backend
+  template:
+    metadata:
+      labels:
+        app: test-backend
+    spec:
+      containers:
+        - name: backend
+          image: ghcr.io/BIRAJ49/test:latest
+          envFrom:
+            - secretRef:
+                name: test-secret
+            - configMapRef:
+                name: test-config
+          ports:
+            - containerPort: 8000
