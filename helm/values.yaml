@@ -1,0 +1,7 @@
+image:
+  repository: ghcr.io/BIRAJ49/test
+  tag: latest
+namespace: opsforge
+replicaCount: 2
+secrets:
+  DATABASE_URL: replace-with-database-url
