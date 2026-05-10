@@ -1,0 +1,13 @@
+services:
+  backend:
+    build: ./backend
+    environment:
+      DATABASE_URL: postgresql://postgres:postgres@postgres:5432/app
+  frontend:
+    build: ./frontend
+  postgres:
+    image: postgres:16
+    environment:
+      POSTGRES_PASSWORD: postgres
+  redis:
+    image: redis:7-alpine
