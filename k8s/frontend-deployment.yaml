@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: test-frontend
+  namespace: opsforge
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: test-frontend
+  template:
+    metadata:
+      labels:
+        app: test-frontend
+    spec:
+      containers:
+        - name: frontend
+          image: ghcr.io/BIRAJ49/test:latest
+          ports:
+            - containerPort: 80
