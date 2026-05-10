@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: test-redis
+  namespace: opsforge
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: test-redis
+  template:
+    metadata:
+      labels:
+        app: test-redis
+    spec:
+      containers:
+        - name: redis
+          image: redis:7-alpine
